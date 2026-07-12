@@ -1,0 +1,2027 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Прайм Сервис — Ремонт компьютерной техники в Ревде</title>
+  <meta name="description" content="Сервисный центр Прайм Сервис в Ревде. Ремонт компьютеров, ноутбуков, телефонов, телевизоров. Удалённая помощь Прайм Коннект. Диагностика бесплатно. Гарантия 12 месяцев.">
+  <meta name="keywords" content="ремонт компьютеров, Ревда, сервисный центр, Прайм Сервис, ремонт ноутбуков, ремонт телефонов, удалённая помощь, 1С">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Прайм Сервис — Ремонт компьютерной техники в Ревде">
+  <meta property="og:description" content="Ремонт компьютеров, ноутбуков, телефонов, телевизоров. Удалённая помощь Прайм Коннект. Диагностика бесплатно. Гарантия 12 месяцев.">
+  <meta property="og:image" content="img/logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="apple-touch-icon" href="img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --accent: #E8751A;
+      --accent-dark: #CC6515;
+      --accent-light: #FFF3EB;
+      --accent-glow: #F5922E;
+      --gray: #7B7B7B;
+      --gray-light: #B0B0B0;
+      --navy: #2D2D2D;
+      --text: #1F1F1F;
+      --text-secondary: #6B6B6B;
+      --bg: #F5F5F5;
+      --white: #FFFFFF;
+      --border: #E5E5E5;
+      --success: #10B981;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+      --radius: 14px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ═══════════════ NAV ═══════════════ */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s;
+    }
+    .nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 24px; height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 18px; font-weight: 800; color: var(--navy);
+      text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 36px; height: 36px;
+      background: var(--accent);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .nav-logo-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
+    .nav-logo-icon svg { width: 20px; height: 20px; fill: #fff; }
+    .nav-links { display: flex; gap: 8px; list-style: none; }
+    .nav-links a {
+      padding: 8px 16px; border-radius: 8px;
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 14px; font-weight: 500;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); background: var(--accent-light); }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--accent); color: #fff;
+      padding: 10px 22px; border-radius: 10px;
+      font-size: 14px; font-weight: 600; text-decoration: none;
+      border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--accent-dark); transform: translateY(-1px); }
+    .nav-mobile { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .nav-mobile svg { width: 24px; height: 24px; stroke: var(--text); fill: none; stroke-width: 2; }
+
+    /* ═══════════════ HERO ═══════════════ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex; align-items: center;
+      background: linear-gradient(165deg, #1F1F1F 0%, #2D2D2D 50%, #3A3A3A 100%);
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 800px 600px at 80% 20%, rgba(232,117,26,0.12), transparent),
+        radial-gradient(ellipse 500px 400px at 10% 90%, rgba(232,117,26,0.06), transparent);
+    }
+    /* Grid pattern */
+    .hero::after {
+      content: '';
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+    .hero-inner {
+      position: relative; z-index: 2;
+      max-width: 1200px; margin: 0 auto;
+      padding: 120px 24px 80px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .hero-text { color: #fff; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(232,117,26,0.15);
+      border: 1px solid rgba(232,117,26,0.3);
+      padding: 6px 16px; border-radius: 100px;
+      font-size: 13px; font-weight: 500; color: var(--accent-glow);
+      margin-bottom: 28px;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .hero h1 {
+      font-size: clamp(38px, 5vw, 62px);
+      font-weight: 900; line-height: 1.08;
+      letter-spacing: -2px; margin-bottom: 20px;
+    }
+    .hero h1 .accent { color: var(--accent-glow); }
+    .hero-sub {
+      font-size: 18px; color: rgba(255,255,255,0.6);
+      max-width: 460px; margin-bottom: 36px; line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 18px 36px; border-radius: 12px;
+      font-size: 17px; font-weight: 700; text-decoration: none;
+      border: none; cursor: pointer;
+      transition: all 0.25s;
+      letter-spacing: 0.3px;
+    }
+    .btn-primary {
+      background: var(--accent); color: #fff;
+      box-shadow: 0 6px 28px rgba(26,109,255,0.35);
+    }
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 10px 36px rgba(26,109,255,0.45); }
+    .btn-outline {
+      background: rgba(255,255,255,0.08);
+      border: 2px solid rgba(255,255,255,0.25);
+      color: #fff;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.4); }
+
+    /* Hero visual — monitor illustration */
+    .hero-visual { display: flex; justify-content: center; align-items: flex-end; gap: 20px; position: relative; }
+    .monitor {
+      width: 380px; position: relative;
+    }
+    .monitor-screen {
+      width: 100%; aspect-ratio: 16/10;
+      background: linear-gradient(145deg, #2C2C2C, #4D4D4D);
+      border-radius: 16px 16px 0 0;
+      border: 3px solid rgba(255,255,255,0.1);
+      border-bottom: none;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .monitor-screen::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.01) 2px, rgba(255,255,255,0.01) 4px);
+    }
+    .screen-content {
+      display: flex; flex-direction: column; align-items: center; gap: 16px;
+      z-index: 1;
+    }
+    .screen-gear {
+      width: 100px; height: 100px;
+      display: flex; align-items: center; justify-content: center;
+      animation: gearSpin 8s linear infinite;
+    }
+    @keyframes gearSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .screen-gear img { width: 100%; height: 100%; object-fit: contain; }
+    .screen-bars { display: flex; flex-direction: column; gap: 6px; width: 120px; }
+    .screen-bar {
+      height: 4px; border-radius: 2px;
+      background: rgba(232,117,26,0.3);
+      animation: barPulse 2s ease-in-out infinite;
+    }
+    .screen-bar:nth-child(1) { width: 100%; animation-delay: 0s; }
+    .screen-bar:nth-child(2) { width: 80%; animation-delay: 0.3s; }
+    .screen-bar:nth-child(3) { width: 60%; animation-delay: 0.6s; }
+    @keyframes barPulse { 0%,100%{opacity:0.3} 50%{opacity:0.8} }
+    .screen-label {
+      font-size: 11px; color: rgba(255,255,255,0.35);
+      letter-spacing: 3px; text-transform: uppercase;
+      font-family: 'SF Mono', 'Cascadia Code', Consolas, monospace;
+    }
+    .monitor-chin {
+      width: 100%; height: 20px;
+      background: linear-gradient(to bottom, #1E293B, #0F172A);
+      border-radius: 0 0 2px 2px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .monitor-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+    }
+    .monitor-stand-neck {
+      width: 60px; height: 24px;
+      background: linear-gradient(to bottom, #1E293B, #151E2E);
+      margin: 0 auto;
+    }
+    .monitor-stand-base {
+      width: 160px; height: 8px;
+      background: linear-gradient(to bottom, #2D3748, #1A202C);
+      margin: 0 auto;
+      border-radius: 0 0 8px 8px;
+    }
+
+    /* Phone illustration */
+    .phone {
+      width: 140px;
+      position: relative;
+    }
+    .phone-body {
+      width: 100%; aspect-ratio: 9/16;
+      background: linear-gradient(145deg, #2C2C2C, #4D4D4D);
+      border-radius: 20px;
+      border: 3px solid rgba(255,255,255,0.1);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 12px;
+      position: relative; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+    .phone-body::before {
+      content: '';
+      position: absolute; top: 8px;
+      width: 40px; height: 6px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 4px;
+    }
+    .phone-screen {
+      width: 88%; height: 80%;
+      background: linear-gradient(145deg, #1A1A1A, #2D2D2D);
+      border-radius: 12px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 8px;
+    }
+    .phone-icon {
+      width: 36px; height: 36px;
+      background: var(--accent);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      animation: gearSpin 6s linear infinite reverse;
+    }
+    .phone-icon img { width: 100%; height: 100%; object-fit: contain; border-radius: 10px; }
+    .phone-bars { display: flex; flex-direction: column; gap: 4px; width: 70px; }
+    .phone-bar {
+      height: 3px; border-radius: 2px;
+      background: rgba(232,117,26,0.3);
+      animation: barPulse 2s ease-in-out infinite;
+    }
+    .phone-bar:nth-child(1) { width: 100%; animation-delay: 0.2s; }
+    .phone-bar:nth-child(2) { width: 70%; animation-delay: 0.5s; }
+    .phone-label {
+      font-size: 9px; color: rgba(255,255,255,0.3);
+      letter-spacing: 2px; text-transform: uppercase;
+      font-family: 'SF Mono', 'Cascadia Code', Consolas, monospace;
+    }
+    .phone-home {
+      width: 30px; height: 30px;
+      border: 2px solid rgba(255,255,255,0.1);
+      border-radius: 50%;
+      position: absolute; bottom: 6px;
+    }
+
+    /* Laptop illustration */
+    .laptop {
+      width: 200px;
+      position: relative;
+    }
+    .laptop-screen {
+      width: 100%; aspect-ratio: 16/10;
+      background: linear-gradient(145deg, #2C2C2C, #4D4D4D);
+      border-radius: 12px 12px 0 0;
+      border: 3px solid rgba(255,255,255,0.1);
+      border-bottom: none;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .laptop-screen::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.01) 2px, rgba(255,255,255,0.01) 4px);
+    }
+    .laptop-content {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      z-index: 1;
+    }
+    .laptop-icon {
+      width: 40px; height: 40px;
+      background: var(--accent);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      animation: gearSpin 7s linear infinite;
+    }
+    .laptop-icon img { width: 100%; height: 100%; object-fit: contain; border-radius: 10px; }
+    .laptop-bars { display: flex; flex-direction: column; gap: 4px; width: 80px; }
+    .laptop-bar {
+      height: 3px; border-radius: 2px;
+      background: rgba(232,117,26,0.3);
+      animation: barPulse 2s ease-in-out infinite;
+    }
+    .laptop-bar:nth-child(1) { width: 100%; animation-delay: 0.1s; }
+    .laptop-bar:nth-child(2) { width: 75%; animation-delay: 0.4s; }
+    .laptop-bar:nth-child(3) { width: 55%; animation-delay: 0.7s; }
+    .laptop-label {
+      font-size: 10px; color: rgba(255,255,255,0.3);
+      letter-spacing: 2px; text-transform: uppercase;
+      font-family: 'SF Mono', 'Cascadia Code', Consolas, monospace;
+    }
+    .laptop-chin {
+      width: 100%; height: 12px;
+      background: linear-gradient(to bottom, #2D3748, #1A202C);
+      border-radius: 0 0 2px 2px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .laptop-dot {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+    }
+    .laptop-base {
+      width: 110%; height: 6px;
+      background: linear-gradient(to bottom, #374151, #1F2937);
+      margin: 0 auto;
+      border-radius: 0 0 6px 6px;
+      margin-left: -5%;
+    }
+
+    /* Floating badges */
+    .float-badge {
+      position: absolute;
+      background: rgba(255,255,255,0.95);
+      border-radius: 12px;
+      padding: 12px 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; font-weight: 600; color: var(--text);
+      animation: floatBadge 4s ease-in-out infinite;
+      z-index: 3;
+    }
+    .float-badge:nth-child(2) { top: 15%; right: -10%; animation-delay: 1s; }
+    .float-badge:nth-child(3) { bottom: 25%; left: -5%; animation-delay: 2s; }
+    @keyframes floatBadge { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    .float-badge-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .float-badge-icon svg { width: 18px; height: 18px; fill: none; stroke-width: 2; }
+    .fb-green { background: var(--accent-light); }
+    .fb-green svg { stroke: var(--accent); }
+    .fb-blue { background: rgba(26,109,255,0.1); }
+    .fb-blue svg { stroke: var(--accent); }
+
+    /* ═══════════════ STATS ═══════════════ */
+    .stats {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stats-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 48px 24px;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-size: 44px; font-weight: 900; color: var(--navy);
+      letter-spacing: -2px; line-height: 1;
+    }
+    .stat-num span { color: var(--accent); }
+    .stat-label {
+      font-size: 14px; color: var(--text-secondary);
+      margin-top: 8px; font-weight: 500;
+    }
+
+    /* ═══════════════ SECTIONS ═══════════════ */
+    section { padding: 120px 24px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 72px; }
+    .section-tag {
+      display: inline-block;
+      font-size: 12px; font-weight: 700;
+      color: var(--accent); text-transform: uppercase;
+      letter-spacing: 3px; margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 900; letter-spacing: -1px;
+      line-height: 1.15; margin-bottom: 16px;
+    }
+    .section-desc {
+      font-size: 17px; color: var(--text-secondary);
+      max-width: 540px; margin: 0 auto; line-height: 1.65;
+    }
+
+    /* ═══════════════ SERVICES ═══════════════ */
+    .services { background: var(--bg); }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      transition: transform 0.25s, box-shadow 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .service-card::after {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 48px rgba(232,117,26,0.15);
+    }
+    .service-card:hover::after { transform: scaleX(1); }
+    .service-card:hover .service-icon {
+      background: var(--accent);
+      transform: scale(1.1) rotate(-3deg);
+    }
+    .service-card:hover .service-icon svg {
+      stroke: #fff;
+    }
+    .service-card:hover h3 { color: var(--accent); }
+    .service-icon {
+      width: 52px; height: 52px;
+      background: var(--accent-light);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .service-icon svg { width: 26px; height: 26px; stroke: var(--accent); fill: none; stroke-width: 1.8; transition: stroke 0.3s; }
+    .service-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .service-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+    .service-price {
+      margin-top: 16px; padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 15px; font-weight: 700; color: var(--navy);
+    }
+    .service-price span { color: var(--accent); font-weight: 600; }
+
+    /* ═══════════════ PROCESS ═══════════════ */
+    .process { background: var(--white); }
+    .process-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute; top: 40px; left: 12%; right: 12%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--border), var(--accent), var(--border));
+      z-index: 0;
+    }
+    .step { text-align: center; position: relative; z-index: 1; }
+    .step-num {
+      width: 80px; height: 80px;
+      background: var(--white);
+      border: 3px solid var(--border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 24px; font-weight: 900; color: var(--accent);
+      transition: all 0.3s;
+    }
+    .step:hover .step-num {
+      background: var(--accent); border-color: var(--accent); color: #fff;
+      transform: scale(1.08);
+    }
+    .step h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .step p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; max-width: 200px; margin: 0 auto; }
+
+    /* ═══════════════ WHY ═══════════════ */
+    .why { background: var(--bg); }
+    .why-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+    }
+    .why-card {
+      display: flex; gap: 20px; align-items: flex-start;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .why-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .why-icon {
+      flex-shrink: 0;
+      width: 48px; height: 48px;
+      background: var(--accent-light);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .why-icon svg { width: 24px; height: 24px; stroke: var(--accent); fill: none; stroke-width: 2; }
+    .why-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .why-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.55; }
+
+    /* ═══════════════ CALLBACK FORM ═══════════════ */
+    .callback-section { background: var(--bg); padding: 100px 24px; }
+    .callback-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+    }
+    .callback-info { padding-right: 24px; }
+    .callback-form-wrap {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+    }
+    .callback-form { display: flex; flex-direction: column; gap: 14px; }
+    .callback-input {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 15px;
+      font-family: inherit;
+      color: var(--text);
+      background: var(--bg);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .callback-input::placeholder { color: var(--text-secondary); }
+    .callback-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(232,117,26,0.1);
+    }
+    .callback-textarea { resize: vertical; min-height: 80px; }
+    .callback-success {
+      text-align: center; padding: 24px 0;
+    }
+    .callback-success-icon {
+      width: 64px; height: 64px;
+      background: var(--accent-light);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .callback-success-icon svg { width: 32px; height: 32px; }
+    .callback-success h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .callback-success p { font-size: 15px; color: var(--text-secondary); }
+
+    @media (max-width: 900px) {
+      .callback-grid { grid-template-columns: 1fr; gap: 32px; }
+      .callback-info { padding-right: 0; text-align: center; }
+      .callback-info .section-title { text-align: center !important; }
+    }
+
+    /* ═══════════════ REMOTE & SOFTWARE ═══════════════ */
+    .remote-section { background: var(--accent-light); padding: 100px 24px; }
+    .remote-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .remote-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      text-align: center;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .remote-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .remote-icon {
+      width: 56px; height: 56px;
+      background: var(--accent);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .remote-icon svg { width: 28px; height: 28px; color: #fff; }
+    .remote-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .remote-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+    @media (max-width: 900px) {
+      .remote-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ═══════════════ BRANDS ═══════════════ */
+    .brands { padding: 56px 24px; }
+    .brands-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
+    .brands-label {
+      font-size: 12px; font-weight: 700; color: var(--text-secondary);
+      text-transform: uppercase; letter-spacing: 3px; margin-bottom: 28px;
+    }
+    .brands-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 56px; flex-wrap: wrap;
+    }
+    .brand {
+      font-size: 24px; font-weight: 800; color: var(--navy);
+      opacity: 0.2; transition: opacity 0.3s;
+    }
+    .brand:hover { opacity: 0.5; }
+
+    /* ═══════════════ CTA ═══════════════ */
+    .cta {
+      background: linear-gradient(165deg, #1F1F1F, #3A3A3A);
+      padding: 120px 24px;
+    }
+    .cta-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+    .cta-inner h2 {
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 900; color: #fff;
+      letter-spacing: -1px; margin-bottom: 16px;
+    }
+    .cta-inner p {
+      font-size: 17px; color: rgba(255,255,255,0.55);
+      margin-bottom: 40px;
+    }
+    .cta-form {
+      display: flex; gap: 12px; max-width: 480px; margin: 0 auto;
+    }
+    .cta-input {
+      flex: 1; padding: 16px 20px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      color: #fff; font-size: 15px;
+      outline: none; transition: border-color 0.2s;
+    }
+    .cta-input::placeholder { color: rgba(255,255,255,0.3); }
+    .cta-input:focus { border-color: var(--accent); }
+
+    /* ═══════════════ CONTACTS ═══════════════ */
+    .contacts { background: var(--white); }
+    .contacts-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .contact-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 32px 24px; text-align: center;
+      transition: transform 0.2s;
+    }
+    .contact-card:hover { transform: translateY(-2px); }
+    .contact-icon {
+      width: 56px; height: 56px;
+      background: var(--accent-light);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .contact-icon svg { width: 26px; height: 26px; stroke: var(--accent); fill: none; stroke-width: 1.8; }
+    .contact-card h4 {
+      font-size: 12px; font-weight: 700; color: var(--text-secondary);
+      text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;
+    }
+    .contact-card p { font-size: 16px; font-weight: 600; color: var(--text); line-height: 1.5; }
+    .contact-card a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .contact-card a:hover { text-decoration: underline; }
+
+    /* ═══════════════ MAP ═══════════════ */
+    .map-section { background: var(--bg); padding: 0; }
+    .map-frame {
+      width: 100%; height: 400px; border: none;
+      display: block;
+    }
+
+    /* ═══════════════ FOOTER ═══════════════ */
+    .footer {
+      background: #1F1F1F;
+      padding: 48px 24px;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 16px; font-weight: 800; color: #fff;
+    }
+    .footer-logo-icon {
+      width: 28px; height: 28px;
+      background: var(--accent);
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .footer-logo-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 7px; }
+    .footer-logo-icon svg { width: 14px; height: 14px; fill: #fff; }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a {
+      font-size: 13px; color: rgba(255,255,255,0.4);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #fff; }
+
+    /* ═══════════════ PAGES ═══════════════ */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ═══════════════ SUBPAGE HERO ═══════════════ */
+    .sub-hero {
+      background: linear-gradient(165deg, #1F1F1F, #3A3A3A);
+      padding: 140px 24px 80px; text-align: center;
+    }
+    .sub-hero h1 {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 900; color: #fff;
+      letter-spacing: -1.5px; margin-bottom: 16px;
+    }
+    .sub-hero p {
+      font-size: 18px; color: rgba(255,255,255,0.55);
+      max-width: 500px; margin: 0 auto;
+    }
+
+    /* ═══════════════ DETAIL CARDS ═══════════════ */
+    .detail-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+    }
+    .detail-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+    .detail-card h3 {
+      font-size: 18px; font-weight: 700;
+      margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
+    }
+    .detail-card h3 .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent);
+    }
+    .detail-card ul { list-style: none; }
+    .detail-card ul li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px; color: var(--text-secondary);
+      display: flex; justify-content: space-between;
+    }
+    .detail-card ul li:last-child { border-bottom: none; }
+    .detail-card ul li strong { color: var(--text); font-weight: 600; }
+
+    /* ═══════════════ REVIEWS ═══════════════ */
+    .reviews-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .review-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+    .review-card.review-yandex {
+      border-left: 3px solid #FC3F1D;
+    }
+    .review-stars { color: var(--accent); font-size: 14px; margin-bottom: 12px; letter-spacing: 2px; }
+    .review-text { font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 16px; }
+    .review-author { font-size: 14px; font-weight: 700; color: var(--text); }
+    .review-date { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+
+    /* ═══════════════ GALLERY ═══════════════ */
+    .gallery { background: var(--white); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+    .gallery-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 1/1;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .gallery-item:hover {
+      transform: scale(1.03);
+      box-shadow: var(--shadow-lg);
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-item:first-child {
+      grid-column: span 2;
+      grid-row: span 2;
+      aspect-ratio: auto;
+    }
+
+    /* ═══════════════ SOCIAL ═══════════════ */
+    .social-links {
+      display: flex; gap: 12px; justify-content: center;
+      margin-top: 24px;
+    }
+    .social-link {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .social-link:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .social-link svg { width: 22px; height: 22px; fill: #fff; }
+    .social-tg { background: #0088CC; }
+    .social-vk { background: #4680C2; }
+    .social-wa { background: #25D366; }
+    .social-max { background: none; padding: 0; }
+
+    /* Lightbox */
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,0.9);
+      align-items: center; justify-content: center;
+      cursor: pointer;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox img {
+      max-width: 90vw; max-height: 90vh;
+      border-radius: 8px; object-fit: contain;
+    }
+    .lightbox-close {
+      position: absolute; top: 20px; right: 20px;
+      width: 40px; height: 40px;
+      background: rgba(255,255,255,0.15);
+      border: none; border-radius: 50%;
+      color: #fff; font-size: 20px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ═══════════════ RESPONSIVE ═══════════════ */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-sub { margin: 0 auto 36px; }
+      .hero-actions { justify-content: center; }
+      .hero-visual { display: none; }
+      .phone { display: none; }
+      .laptop { display: none; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .process-steps::before { display: none; }
+      .why-grid { grid-template-columns: 1fr; }
+      .contacts-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .detail-grid { grid-template-columns: 1fr; }
+      .cta-form { flex-direction: column; }
+      .nav-links { display: none; }
+      .nav-cta.desktop { display: none; }
+      .nav-mobile { display: block; }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+      .gallery-item:first-child { grid-column: span 2; grid-row: span 1; aspect-ratio: 16/9; }
+    }
+    @media (max-width: 600px) {
+      .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .stat-num { font-size: 32px; }
+      .process-steps { grid-template-columns: 1fr; }
+    }
+
+    /* ═══════════════ SCROLL PROGRESS BAR ═══════════════ */
+    .scroll-progress {
+      position: fixed; top: 68px; left: 0; right: 0;
+      height: 3px; z-index: 99;
+      background: rgba(0,0,0,0.06);
+    }
+    .scroll-progress-bar {
+      height: 100%; width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-glow));
+      transition: width 0.1s linear;
+    }
+
+    /* ═══════════════ PARALLAX HERO ═══════════════ */
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      will-change: transform;
+    }
+    .parallax-section {
+      position: relative; overflow: hidden;
+    }
+    .parallax-bg {
+      position: absolute; inset: -20%; z-index: 0;
+      will-change: transform;
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* ═══════════════ COUNTER ANIMATION ═══════════════ */
+    .stat-num { transition: opacity 0.3s; }
+
+    /* ═══════════════ GRADIENT SECTIONS ═══════════════ */
+    .services { background: linear-gradient(180deg, var(--bg) 0%, #EEF1F5 100%); }
+    .why { background: linear-gradient(180deg, #EEF1F5 0%, var(--bg) 100%); }
+    .callback-section { background: linear-gradient(180deg, var(--bg) 0%, #E8EBF0 100%); }
+
+    /* ═══════════════ GALLERY HOVER EFFECT ═══════════════ */
+    .gallery-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 1/1;
+      cursor: pointer;
+      transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.4s;
+      position: relative;
+    }
+    .gallery-item::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.4) 100%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+    }
+    .gallery-item:hover::after { opacity: 1; }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform 0.4s;
+    }
+    .gallery-item:hover img { transform: scale(1.08); }
+
+    /* ═══════════════ ENHANCED CARD EFFECTS ═══════════════ */
+    .service-card, .why-card, .remote-card, .contact-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before, .why-card::before, .remote-card::before {
+      content: '';
+      position: absolute; top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(232,117,26,0.06) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+    .service-card:hover::before, .why-card:hover::before, .remote-card:hover::before {
+      opacity: 1;
+    }
+
+    /* ═══════════════ SCROLL REVEAL ═══════════════ */
+    .reveal {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Slide from left */
+    .reveal-left {
+      opacity: 0; transform: translateX(-50px);
+      transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+    /* Slide from right */
+    .reveal-right {
+      opacity: 0; transform: translateX(50px);
+      transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+    /* Scale up */
+    .reveal-scale {
+      opacity: 0; transform: scale(0.9);
+      transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+    /* Staggered card reveal */
+    .reveal-card {
+      opacity: 0; transform: translateY(40px) scale(0.97);
+      transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+      transition-delay: calc(var(--i, 0) * 0.1s);
+    }
+    .reveal-card.visible { opacity: 1; transform: translateY(0) scale(1); }
+
+    /* ═══════════════ FLOATING SOCIAL BAR ═══════════════ */
+    .float-social-wrap {
+      position: fixed; bottom: 24px; right: 24px; z-index: 90;
+      display: flex; flex-direction: column-reverse; align-items: center; gap: 10px;
+    }
+    .float-toggle {
+      width: 60px; height: 60px;
+      background: var(--accent);
+      border: none; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 24px rgba(232,117,26,0.35);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .float-toggle:hover { transform: scale(1.08); box-shadow: 0 6px 32px rgba(232,117,26,0.45); }
+    .float-toggle svg { width: 28px; height: 28px; fill: #fff; transition: transform 0.3s; }
+    .float-toggle.active svg { transform: rotate(45deg); }
+
+    .float-bar {
+      display: flex; flex-direction: column; gap: 8px;
+      opacity: 0; pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .float-bar.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+    .float-bar-item {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+      transition: transform 0.2s, box-shadow 0.2s;
+      opacity: 0; transform: scale(0.5);
+    }
+    .float-bar.open .float-bar-item { opacity: 1; transform: scale(1); }
+    .float-bar.open .float-bar-item:nth-child(1) { transition-delay: 0s; }
+    .float-bar.open .float-bar-item:nth-child(2) { transition-delay: 0.05s; }
+    .float-bar.open .float-bar-item:nth-child(3) { transition-delay: 0.1s; }
+    .float-bar.open .float-bar-item:nth-child(4) { transition-delay: 0.15s; }
+    .float-bar.open .float-bar-item:nth-child(5) { transition-delay: 0.2s; }
+    .float-bar-item:hover { transform: scale(1.15); box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+    .float-bar-item svg { width: 22px; height: 22px; fill: #fff; }
+    .fbi-tg { background: #0088CC; }
+    .fbi-vk { background: #4680C2; }
+    .fbi-wa { background: #25D366; }
+    .fbi-max { background: none; padding: 0; overflow: hidden; }
+    .fbi-max img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+    .fbi-site { background: var(--accent); }
+    .fbi-site svg { fill: none; stroke: #fff; stroke-width: 2; }
+
+    @media (max-width: 900px) {
+      .float-social-wrap { bottom: 16px; right: 16px; }
+      .float-toggle { width: 52px; height: 52px; }
+      .float-toggle svg { width: 24px; height: 24px; }
+      .float-bar-item { width: 44px; height: 44px; }
+      .float-bar-item svg { width: 20px; height: 20px; }
+      .back-to-top { width: 42px; height: 42px; bottom: 16px; left: 16px; }
+    }
+
+    .back-to-top {
+      position: fixed; bottom: 24px; left: 24px; z-index: 90;
+      width: 48px; height: 48px;
+      background: var(--accent);
+      border: none; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(232,117,26,0.3);
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s, transform 0.2s;
+    }
+    .back-to-top.visible { opacity: 1; pointer-events: auto; }
+    .back-to-top:hover { transform: translateY(-2px); }
+    .back-to-top svg { width: 20px; height: 20px; stroke: #fff; fill: none; stroke-width: 2.5; }
+
+    /* ═══════════════ REDUCED MOTION ═══════════════ */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" onclick="showPage('home')">
+        <div class="nav-logo-icon">
+          <img src="img/logo.png" alt="Прайм Сервис">
+        </div>
+        Прайм Сервис
+      </a>
+      <ul class="nav-links">
+        <li><a href="#" onclick="showPage('home')">Главная</a></li>
+        <li><a href="#" onclick="showPage('prices')">Услуги и цены</a></li>
+        <li><a href="#" onclick="showPage('reviews')">Отзывы</a></li>
+        <li><a href="#" onclick="showPage('contacts')">Контакты</a></li>
+      </ul>
+      <a href="tel:+79826626262" class="nav-cta desktop">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Позвонить
+      </a>
+      <button class="nav-mobile" onclick="toggleMobile()">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress">
+    <div class="scroll-progress-bar" id="scrollProgress"></div>
+  </div>
+
+  <!-- ═══════════════ HOME PAGE ═══════════════ -->
+  <div class="page active" id="page-home">
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-bg" id="heroBg"></div>
+      <div class="hero-inner">
+        <div class="hero-text">
+          <div class="hero-badge">
+            <div class="hero-badge-dot"></div>
+            Пн-Пт 09:00–19:00
+          </div>
+          <h1>Ремонт компьютерной техники<br>с <span class="accent">гарантией</span></h1>
+          <p class="hero-sub">Ремонт компьютерной техники и удалённая помощь. Диагностика бесплатно. Гарантия 12 месяцев. Работаем с 2014 года.</p>
+          <div class="hero-actions">
+            <a href="tel:+79826626262" class="btn btn-primary">
+              Позвонить
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#" class="btn btn-outline" onclick="showPage('prices')">Услуги и цены</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="monitor">
+            <div class="monitor-screen">
+              <div class="screen-content">
+                <div class="screen-gear">
+                  <img src="img/logo-transparent.png" alt="Прайм Сервис">
+                </div>
+                <div class="screen-bars">
+                  <div class="screen-bar"></div>
+                  <div class="screen-bar"></div>
+                  <div class="screen-bar"></div>
+                </div>
+                <div class="screen-label">Диагностика</div>
+              </div>
+            </div>
+            <div class="monitor-chin"><div class="monitor-dot"></div></div>
+            <div class="monitor-stand-neck"></div>
+            <div class="monitor-stand-base"></div>
+          </div>
+          <div class="phone">
+            <div class="phone-body">
+              <div class="phone-screen">
+                <div class="phone-icon">
+                  <img src="img/logo-transparent.png" alt="">
+                </div>
+                <div class="phone-bars">
+                  <div class="phone-bar"></div>
+                  <div class="phone-bar"></div>
+                  <div class="phone-bar"></div>
+                </div>
+                <div class="phone-label">Прайм Сервис</div>
+              </div>
+              <div class="phone-home"></div>
+            </div>
+          </div>
+          <div class="laptop">
+            <div class="laptop-screen">
+              <div class="laptop-content">
+                <div class="laptop-icon">
+                  <img src="img/logo-transparent.png" alt="">
+                </div>
+                <div class="laptop-bars">
+                  <div class="laptop-bar"></div>
+                  <div class="laptop-bar"></div>
+                  <div class="laptop-bar"></div>
+                </div>
+                <div class="laptop-label">Прайм Сервис</div>
+              </div>
+            </div>
+            <div class="laptop-chin"><div class="laptop-dot"></div></div>
+            <div class="laptop-base"></div>
+          </div>
+          <div class="float-badge">
+            <div class="float-badge-icon fb-green">
+              <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            Гарантия 12 мес.
+          </div>
+          <div class="float-badge">
+            <div class="float-badge-icon fb-blue">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            Ремонт от 20 минут
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats">
+      <div class="stats-inner">
+        <div class="stat reveal">
+          <div class="stat-num">5<span>.0</span></div>
+          <div class="stat-label">Рейтинг на Яндекс Картах</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat-num">81<span>+</span></div>
+          <div class="stat-label">Отзыв от клиентов</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat-num">12<span>+</span></div>
+          <div class="stat-label">Лет на рынке</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat-num">24<span>ч</span></div>
+          <div class="stat-label">Средний срок ремонта</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section class="services" id="home-services">
+      <div class="section-inner">
+        <div class="section-header reveal-scale">
+          <div class="section-tag">Услуги</div>
+          <h2 class="section-title">Что мы ремонтируем</h2>
+          <p class="section-desc">Полный спектр услуг по ремонту и обслуживанию техники</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card reveal-card" style="--i:0">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M12 13v1"/></svg>
+            </div>
+            <h3>Удалённая помощь</h3>
+            <p>Подключаемся через <strong>Прайм Коннект</strong>. Решаем проблемы с ПО, настройкой, 1С — не выходя из дома</p>
+            <div class="service-price">от 500 &#8381; <span>консультация бесплатно</span></div>
+          </div>
+          <div class="service-card reveal-card" style="--i:1">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <h3>Ремонт компьютерной техники</h3>
+            <p>Диагностика, чистка, замена комплектующих, пайка, ремонт материнских плат</p>
+            <div class="service-price">от 500 &#8381; <span>диагностика бесплатно</span></div>
+          </div>
+          <div class="service-card reveal-card" style="--i:2">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+            </div>
+            <h3>Ремонт телефонов</h3>
+            <p>Samsung, Apple, Huawei, Xiaomi, Honor. Замена экранов, батарей, разъёмов</p>
+            <div class="service-price">от 1 000 &#8381;</div>
+          </div>
+          <div class="service-card reveal-card" style="--i:3">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
+            </div>
+            <h3>Ремонт телевизоров</h3>
+            <p>Любая сложность. Замена матриц, ремонт аудио/видеотехники, настройка Smart TV</p>
+            <div class="service-price">от 1 500 &#8381;</div>
+          </div>
+          <div class="service-card reveal-card" style="--i:4">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            </div>
+            <h3>Заправка картриджей</h3>
+            <p>От 15 минут. Все типы картриджей. Возможна доставка</p>
+            <div class="service-price">от 550 &#8381;</div>
+          </div>
+          <div class="service-card reveal-card" style="--i:5">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            </div>
+            <h3>Видеонаблюдение</h3>
+            <p>Монтаж на любой объект. Подбор оборудования, настройка, обслуживание</p>
+            <div class="service-price">от 2 000 &#8381;</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process">
+      <div class="section-inner">
+        <div class="section-header reveal-scale">
+          <div class="section-tag">Процесс</div>
+          <h2 class="section-title">Как мы работаем</h2>
+        </div>
+        <div class="process-steps">
+          <div class="step reveal">
+            <div class="step-num">01</div>
+            <h3>Заявка</h3>
+            <p>Позвоните или напишите в WhatsApp / Telegram</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-num">02</div>
+            <h3>Диагностика</h3>
+            <p>Бесплатно определим проблему и назовём стоимость</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-num">03</div>
+            <h3>Ремонт</h3>
+            <p>Выполним работы в согласованные сроки</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-num">04</div>
+            <h3>Готово</h3>
+            <p>Работающий компьютер с гарантией 12 месяцев</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section class="why">
+      <div class="section-inner">
+        <div class="section-header reveal-scale">
+          <div class="section-tag">Преимущества</div>
+          <h2 class="section-title">Почему выбирают нас</h2>
+        </div>
+        <div class="why-grid">
+          <div class="why-card reveal-card" style="--i:0">
+            <div class="why-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h3>Гарантия 12 месяцев</h3>
+              <p>На все виды работ и установленные запчасти</p>
+            </div>
+          </div>
+          <div class="why-card reveal-card" style="--i:1">
+            <div class="why-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div>
+              <h3>Быстрые сроки</h3>
+              <p>Большинство ремонтов &mdash; в течение 24 часов</p>
+            </div>
+          </div>
+          <div class="why-card reveal-card" style="--i:2">
+            <div class="why-icon">
+              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <div>
+              <h3>Индивидуальный подход</h3>
+              <p>Оптимальное решение под ваш бюджет</p>
+            </div>
+          </div>
+          <div class="why-card reveal-card" style="--i:3">
+            <div class="why-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
+            </div>
+            <div>
+              <h3>Честная цена</h3>
+              <p>Фиксированная стоимость. Никаких скрытых доплат</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REMOTE & SOFTWARE -->
+    <section class="remote-section parallax-section">
+      <div class="parallax-bg" data-speed="0.1" style="background: linear-gradient(135deg, #FFF3EB 0%, #FFE8D6 100%);"></div>
+      <div class="section-inner" style="position:relative;z-index:1;">
+        <div class="remote-grid">
+          <div class="remote-card reveal-card" style="--i:0">
+            <div class="remote-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M12 13v1"/></svg>
+            </div>
+            <h3>Прайм Коннект</h3>
+            <p>Наша программа для удалённого подключения. Скачайте с сайта <a href="https://прайм96.рф" target="_blank" style="color:var(--accent);font-weight:600;">прайм96.рф</a> и мы подключимся к вашему компьютеру для решения проблемы</p>
+            <a href="https://прайм96.рф" target="_blank" class="btn btn-primary" style="margin-top:16px;display:inline-flex;font-size:14px;padding:10px 20px;">
+              Скачать Прайм Коннект
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </a>
+          </div>
+          <div class="remote-card reveal-card" style="--i:1">
+            <div class="remote-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg>
+            </div>
+            <h3>Настройка ПО</h3>
+            <p>Установка и настройка любых программ, драйверов, антивирусов. Настройка рабочего места под ваши задачи</p>
+          </div>
+          <div class="remote-card reveal-card" style="--i:2">
+            <div class="remote-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 1 1 0 10h-2"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            </div>
+            <h3>Настройка 1С</h3>
+            <p>Установка, обновление и настройка программы 1С:Предприятие. Подключение к базам данных, настройка отчётов</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRANDS -->
+    <div class="brands parallax-section">
+      <div class="parallax-bg" data-speed="0.05" style="background: linear-gradient(135deg, #F8F9FB 0%, #EEF1F5 100%);"></div>
+      <div class="brands-inner reveal" style="position:relative;z-index:1;">
+        <div class="brands-label">Работаем с ведущими брендами</div>
+        <div class="brands-row">
+          <div class="brand">ASUS</div>
+          <div class="brand">MSI</div>
+          <div class="brand">Samsung</div>
+          <div class="brand">Apple</div>
+          <div class="brand">Lenovo</div>
+          <div class="brand">Huawei</div>
+          <div class="brand">Xiaomi</div>
+          <div class="brand">Honor</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GALLERY -->
+    <section class="gallery">
+      <div class="section-inner">
+        <div class="section-header reveal-scale">
+          <div class="section-tag">Фотогалерея</div>
+          <h2 class="section-title">Наш сервисный центр</h2>
+          <p class="section-desc">Загляните к нам &mdash; посмотрите как мы работаем</p>
+        </div>
+        <div class="gallery-grid reveal">
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="img/photo1.png" alt="Прайм Сервис" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="img/photo2.png" alt="Прайм Сервис" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="img/photo3.png" alt="Прайм Сервис" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="img/photo4.png" alt="Прайм Сервис" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="img/photo5.png" alt="Прайм Сервис" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="img/photo6.png" alt="Прайм Сервис" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="img/photo7.png" alt="Прайм Сервис" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="img/photo8.png" alt="Прайм Сервис" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="img/photo9.png" alt="Прайм Сервис" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="img/photo10.png" alt="Прайм Сервис" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALLBACK FORM -->
+    <section class="callback-section parallax-section">
+      <div class="parallax-bg" data-speed="0.08" style="background: linear-gradient(135deg, #E8EBF0 0%, #D5DAE3 100%);"></div>
+      <div class="section-inner" style="position:relative;z-index:1;">
+        <div class="callback-grid">
+          <div class="callback-info reveal-left">
+            <div class="section-tag">Обратная связь</div>
+            <h2 class="section-title" style="text-align:left;">Оставьте заявку</h2>
+            <p style="color:var(--text-secondary);margin-bottom:24px;line-height:1.7;">Мы перезвоним вам в течение 15 минут и ответим на все вопросы. Или позвоните нам прямо сейчас:</p>
+            <a href="tel:+79826626262" class="btn btn-primary" style="display:inline-flex;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +7 (982) 662-62-62
+            </a>
+          </div>
+          <div class="callback-form-wrap reveal-right">
+            <form class="callback-form" onsubmit="handleSubmit(event)">
+              <input class="callback-input" type="text" placeholder="Ваше имя" required aria-label="Имя">
+              <input class="callback-input" type="tel" placeholder="+7 (___) ___-__-__" required aria-label="Телефон">
+              <textarea class="callback-input callback-textarea" placeholder="Опишите вашу проблему (необязательно)" rows="3" aria-label="Сообщение"></textarea>
+              <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center;">
+                Отправить заявку
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+              <p style="font-size:12px;color:var(--text-secondary);text-align:center;margin-top:8px;">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</p>
+            </form>
+            <div class="callback-success" id="callbackSuccess" style="display:none;">
+              <div class="callback-success-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <h3>Заявка отправлена!</h3>
+              <p>Мы перезвоним вам в течение 15 минут</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section class="contacts" id="home-contacts">
+      <div class="section-inner">
+        <div class="section-header reveal-scale">
+          <div class="section-tag">Контакты</div>
+          <h2 class="section-title">Свяжитесь с нами</h2>
+        </div>
+        <div class="contacts-grid">
+          <div class="contact-card reveal-card" style="--i:0">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <h4>Телефон</h4>
+            <p><a href="tel:+79826626262">+7 (982) 662-62-62</a></p>
+          </div>
+          <div class="contact-card reveal-card" style="--i:1">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h4>Адрес</h4>
+            <p>БЦ &laquo;Маяк&raquo;,<br>ул. Павла Зыкина, 32<br>оф. 310, 3 этаж<br>г. Ревда</p>
+          </div>
+          <div class="contact-card reveal-card" style="--i:2">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h4>Время работы</h4>
+            <p>Пн-Пт: 09:00 &ndash; 19:00<br>Сб, Вс: 10:00 &ndash; 15:00</p>
+          </div>
+        </div>
+        <div class="social-links reveal-scale">
+          <a href="https://t.me/PrimeService96" target="_blank" class="social-link social-tg" title="Telegram">
+            <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          </a>
+          <a href="https://vk.com/primeservis" target="_blank" class="social-link social-vk" title="ВКонтакте">
+            <svg viewBox="0 0 24 24"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.678.847 2.49 2.27 4.675 2.86 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg>
+          </a>
+          <a href="https://wa.me/79826626262" target="_blank" class="social-link social-wa" title="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+          <a href="https://web.max.ru/142112796" target="_blank" class="social-link social-max" title="Max">
+            <img src="img/max-icon.png" alt="Max" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+          </a>
+          <a href="https://прайм96.рф" target="_blank" class="social-link social-site" title="Сайт" style="background:var(--accent);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:22px;height:22px;stroke:#fff;"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══════════════ PRICES PAGE ═══════════════ -->
+  <div class="page" id="page-prices">
+    <div class="sub-hero">
+      <h1>Услуги и цены</h1>
+      <p>Честные цены без скрытых доплат</p>
+    </div>
+    <section>
+      <div class="section-inner">
+        <div class="detail-grid">
+          <div class="detail-card reveal-card" style="--i:0">
+            <h3><span class="dot"></span>Удалённая помощь</h3>
+            <ul>
+              <li><strong>Программа</strong> Прайм Коннект</li>
+              <li><strong>Скачать</strong> <a href="https://прайм96.рф" target="_blank" style="color:var(--accent);">прайм96.рф</a></li>
+              <li><strong>Настройка ПО</strong> от 500 &#8381;</li>
+              <li><strong>Устранение ошибок</strong> от 500 &#8381;</li>
+              <li><strong>Установка обновлений</strong> от 300 &#8381;</li>
+              <li><strong>Настройка сети</strong> от 500 &#8381;</li>
+              <li><strong>Консультация</strong> бесплатно</li>
+            </ul>
+          </div>
+          <div class="detail-card reveal-card" style="--i:1">
+            <h3><span class="dot"></span>Компьютеры и ноутбуки</h3>
+            <ul>
+              <li><strong>Диагностика</strong> Бесплатно при ремонте</li>
+              <li><strong>Чистка от пыли</strong> от 1 500 &#8381;</li>
+              <li><strong>Замена термопасты</strong> от 800 &#8381;</li>
+              <li><strong>Замена экрана</strong> от 3 000 &#8381;</li>
+              <li><strong>Пайка / микроремонт</strong> от 2 000 &#8381;</li>
+              <li><strong>Ремонт материнской платы</strong> от 3 000 &#8381;</li>
+            </ul>
+          </div>
+          <div class="detail-card reveal-card" style="--i:2">
+            <h3><span class="dot"></span>Телефоны</h3>
+            <ul>
+              <li><strong>Ремонт от</strong> 1 000 &#8381;</li>
+              <li><strong>Замена экрана</strong> от 1 000 &#8381;</li>
+              <li><strong>Замена батареи</strong> от 800 &#8381;</li>
+              <li><strong>Замена разъёма</strong> от 1 000 &#8381;</li>
+              <li><strong>Samsung, Apple, Huawei, Xiaomi, Honor</strong></li>
+            </ul>
+          </div>
+          <div class="detail-card reveal-card" style="--i:3">
+            <h3><span class="dot"></span>Телевизоры и мониторы</h3>
+            <ul>
+              <li><strong>Ремонт от</strong> 1 500 &#8381;</li>
+              <li><strong>Замена матрицы</strong> от 3 000 &#8381;</li>
+              <li><strong>Настройка Smart TV</strong> от 1 000 &#8381;</li>
+              <li><strong>Аудио/видеотехника</strong> от 1 500 &#8381;</li>
+            </ul>
+          </div>
+          <div class="detail-card reveal-card" style="--i:4">
+            <h3><span class="dot"></span>Программные работы</h3>
+            <ul>
+              <li><strong>Установка Windows</strong> от 1 500 &#8381;</li>
+              <li><strong>Драйверы</strong> от 500 &#8381;</li>
+              <li><strong>Настройка сети</strong> от 1 000 &#8381;</li>
+              <li><strong>Удаление вирусов</strong> от 1 000 &#8381;</li>
+            </ul>
+          </div>
+          <div class="detail-card reveal-card" style="--i:5">
+            <h3><span class="dot"></span>Заправка и монтаж</h3>
+            <ul>
+              <li><strong>Заправка картриджей</strong> от 550 &#8381;</li>
+              <li><strong>Монтаж видеонаблюдения</strong> от 2 000 &#8381;</li>
+              <li><strong>Сборка ПК</strong> от 3 000 &#8381;</li>
+              <li><strong>Восстановление данных</strong> от 2 500 &#8381;</li>
+            </ul>
+          </div>
+          <div class="detail-card reveal-card" style="--i:6">
+            <h3><span class="dot"></span>Дополнительно</h3>
+            <ul>
+              <li><strong>Ремонт дронов</strong> от 2 000 &#8381;</li>
+              <li><strong>Ремонт приставок</strong> от 2 000 &#8381;</li>
+              <li><strong>Ремонт смарт-часов</strong> от 1 500 &#8381;</li>
+              <li><strong>Выезд на дом</strong> от 500 &#8381;</li>
+              <li><strong>Срочный ремонт</strong> +50%</li>
+            </ul>
+          </div>
+          <div class="detail-card reveal-card" style="--i:7">
+            <h3><span class="dot"></span>Настройка 1С</h3>
+            <ul>
+              <li><strong>Установка 1С</strong> от 1 500 &#8381;</li>
+              <li><strong>Обновление 1С</strong> от 1 000 &#8381;</li>
+              <li><strong>Настройка баз данных</strong> от 2 000 &#8381;</li>
+              <li><strong>Настройка отчётов</strong> от 1 500 &#8381;</li>
+              <li><strong>Обучение работе</strong> от 1 000 &#8381;</li>
+              <li><strong>Удалённая настройка</strong> возможна</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══════════════ REVIEWS PAGE ═══════════════ -->
+  <div class="page" id="page-reviews">
+    <div class="sub-hero">
+      <h1>Отзывы</h1>
+      <p>4.9 на 2ГИС (19 отзывов) и 5.0 на Яндекс Картах (81+ отзыв)</p>
+    </div>
+    <section>
+      <div class="section-inner">
+        <div class="reviews-grid">
+
+          <!-- 2ГИС отзывы -->
+          <div class="review-card reveal-card" style="--i:0">
+            <div class="review-author">Катерина Десятова</div>
+            <div class="review-date">2ГИС &middot; 5 отзывов</div>
+          </div>
+          <div class="review-card reveal-card">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="review-text">Заходил в данный сервис, всё на высшем уровне, проблему решили в считанные минуты. От Прайм сервиса остались только положительные впечатления, если на ремонт &mdash; только сюда!</div>
+            <div class="review-author">Александр Медведев</div>
+            <div class="review-date">2ГИС &middot; 4 отзыва</div>
+          </div>
+          <div class="review-card reveal-card">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="review-text">Компания ориентированная на людей. Позвонил, попросил, приехали, сделали, оплатил. ВСЁ! Привёз системник вне рабочее время, договорились, сделали. Ставят не ширпотреб а сразу качественные комплектующие, чтоб потом не переделывать, всё согласовывают. Рекомендую однозначно!</div>
+            <div class="review-author">Витал В</div>
+            <div class="review-date">2ГИС &middot; 4 отзыва</div>
+          </div>
+          <div class="review-card reveal-card">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="review-text">Отличный сервис. В течение нескольких лет периодически обращаюсь к ним за помощью. Во всех случаях помогли. Очень быстро делают. Цену не рвут, адекватная, нормальная цена. На вопросы отвечают, не молчуны, приятные люди.</div>
+            <div class="review-author">Городская легенда</div>
+            <div class="review-date">2ГИС &middot; 1 отзыв</div>
+          </div>
+          <div class="review-card reveal-card">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="review-text">Обращаюсь не первый раз (восстанавливала данные на ноуте, меняла экран на телефоне). Индивидуальный подход, быстрая качественная работа. Сервис на высшем уровне. Рекомендую.</div>
+            <div class="review-author">Ольга Носкова</div>
+            <div class="review-date">2ГИС &middot; 1 отзыв</div>
+          </div>
+          <div class="review-card reveal-card">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="review-text">Чинила экран телефона. Сделали всё очень быстро и качественно, персонал очень добрый и отзывчивый. Буду обращаться только в Прайм Сервис &mdash; лучшие люди и качественная работа!</div>
+            <div class="review-author">Анна Горланова</div>
+            <div class="review-date">2ГИС &middot; 1 отзыв</div>
+          </div>
+          <div class="review-card reveal-card">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="review-text">Вежливый персонал, обращалась за техобслуживанием ноутбука. Всё сделали очень быстро. В самом офисе можно дождаться окончания работ. А ещё у них много конфет и есть кофе!</div>
+            <div class="review-author">Lilya</div>
+            <div class="review-date">2ГИС &middot; 1 отзыв</div>
+          </div>
+          <div class="review-card reveal-card">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="review-text">Неоднократно обращалась в Праймсервис с проблемами оргтехники и ВСЕГДА был быстрый и качественный ремонт. Спасибо за рутинный труд, внимание и доброжелательность!</div>
+            <div class="review-author">Надежда Чувашова</div>
+            <div class="review-date">2ГИС &middot; 1 отзыв</div>
+          </div>
+          <div class="review-card reveal-card">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="review-text">Сделали очень быстро (сдавал ноутбук в пятницу, в понедельник вернули)! Очень приятная и отзывчивая администратор! Большое спасибо!</div>
+            <div class="review-author">Denchik Sirotin</div>
+            <div class="review-date">2ГИС &middot; 2 отзыва</div>
+          </div>
+          <div class="review-card reveal-card">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="review-text">Сервис отличный, починили всё, поменяли аккумулятор, сменили динамик. Теперь все работает как новое! Спасибо ребятам за хорошую работу.</div>
+            <div class="review-author">Александра Даудрих</div>
+            <div class="review-date">2ГИС &middot; 2 отзыва</div>
+          </div>
+          <div class="review-card reveal-card">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="review-text">Все супер, быстро и не дорого! А самое главное качественно!</div>
+            <div class="review-author">Дмитрий Черкасов</div>
+            <div class="review-date">2ГИС &middot; 2 отзыва</div>
+          </div>
+          <div class="review-card reveal-card">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="review-text">Сервис хороший. Сдала старый планшет, отремонтировали. Советую обращаться сюда.</div>
+            <div class="review-author">Лена Ширинкина</div>
+            <div class="review-date">2ГИС &middot; 2 отзыва</div>
+          </div>
+
+          <!-- Яндекс отзывы -->
+          <div class="review-card review-yandex reveal-card">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="review-text">Ребята молодцы! Свою работу знают и выполняют её быстро и качественно. Постоянно к ним обращаюсь на протяжении многих лет. Успехов вам и процветания и побольше благодарных клиентов!</div>
+            <div class="review-author">Десятова Е.</div>
+            <div class="review-date">Яндекс Карты &middot; Знаток города 3 уровня</div>
+          </div>
+          <div class="review-card review-yandex reveal-card">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="review-text">Отличный сервис. Быстро. Качественно. Цены приемлемые. Отдаю в ремонт видео, аудио, сотовые телефоны только у них. Рекомендую! Лучший сервис в Ревде!</div>
+            <div class="review-author">631264 Одинцов</div>
+            <div class="review-date">Яндекс Карты &middot; Знаток города 3 уровня</div>
+          </div>
+          <div class="review-card review-yandex reveal-card">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="review-text">Починили залитый ноут за несколько часов за вменяемый прайс. Сотрудник приветливый. Показал фотоотчёт и прогнал при мне диагностику аппаратной части.</div>
+            <div class="review-author">Антонов С.</div>
+            <div class="review-date">Яндекс Карты &middot; Знаток города 5 уровня</div>
+          </div>
+          <div class="review-card review-yandex reveal-card">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="review-text">Обращался несколько раз &mdash; всегда помогают. Заменяли экран на ноутбуке, чистили от пыли. Всё делают быстро и без лишних вопросов. Цены адекватные.</div>
+            <div class="review-author">Кирилл М.</div>
+            <div class="review-date">Яндекс Карты</div>
+          </div>
+          <div class="review-card review-yandex reveal-card">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="review-text">Собрали игровой компьютер. Подобрали оптимальную конфигурацию под мой бюджет. Всё работает отлично, никаких проблем. Спасибо большое!</div>
+            <div class="review-author">Алексей В.</div>
+            <div class="review-date">Яндекс Карты</div>
+          </div>
+          <div class="review-card review-yandex reveal-card">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="review-text">Нужна была срочная установка Windows. Сделали за полчаса, настроили всё под меня. Приятные сотрудники, рекомендую этот сервис!</div>
+            <div class="review-author">Марина К.</div>
+            <div class="review-date">Яндекс Карты</div>
+          </div>
+          <div class="review-card review-yandex reveal-card">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="review-text">Восстановили данные с жёсткого диска, который другие сервисы не смогли починить. Очень благодарна! Вернули все важные файлы.</div>
+            <div class="review-author">Ольга Н.</div>
+            <div class="review-date">Яндекс Карты</div>
+          </div>
+          <div class="review-card review-yandex reveal-card">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="review-text">Ремонтировали материнскую плату. Мастер объяснил что сломалось и сколько будет стоить. Никаких скрытых доплат. Работа сделана качественно!</div>
+            <div class="review-author">Дмитрий П.</div>
+            <div class="review-date">Яндекс Карты</div>
+          </div>
+          <div class="review-card review-yandex reveal-card">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="review-text">Заправляли картридж &mdash; сделали быстро, за 15 минут. Качество печати отличное. Теперь только к ним!</div>
+            <div class="review-author">Елена С.</div>
+            <div class="review-date">Яндекс Карты</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══════════════ CONTACTS PAGE ═══════════════ -->
+  <div class="page" id="page-contacts">
+    <div class="sub-hero">
+      <h1>Контакты</h1>
+      <p>Позвоните или приезжайте &mdash; поможем!</p>
+    </div>
+    <section>
+      <div class="section-inner">
+        <div class="contacts-grid" style="margin-bottom:40px;">
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <h4>Телефон</h4>
+            <p><a href="tel:+79826626262">+7 (982) 662-62-62</a></p>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h4>Адрес</h4>
+            <p>БЦ &laquo;Маяк&raquo;<br>ул. Павла Зыкина, 32<br>оф. 310, 3 этаж<br>г. Ревда, 623280</p>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h4>Время работы</h4>
+            <p>Пн-Пт: 09:00 &ndash; 19:00<br>Сб, Вс: 10:00 &ndash; 15:00</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="map-section">
+      <iframe class="map-frame" src="https://www.openstreetmap.org/export/embed.html?bbox=59.918%2C56.793%2C59.928%2C56.799&layer=mapnik&marker=56.7959%2C59.9227" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <div class="footer-logo-icon">
+          <img src="img/logo.png" alt="Прайм Сервис">
+        </div>
+        Прайм Сервис
+      </div>
+      <div class="footer-copy">&copy; 2026 Прайм Сервис. Все права защищены.</div>
+      <div class="footer-links">
+        <a href="https://t.me/PrimeService96" target="_blank">Telegram</a>
+        <a href="https://vk.com/primeservis" target="_blank">ВКонтакте</a>
+        <a href="https://wa.me/79826626262" target="_blank">WhatsApp</a>
+        <a href="https://web.max.ru/142112796" target="_blank">Max</a>
+        <a href="https://прайм96.рф" target="_blank">Прайм Коннект</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Page navigation
+    function showPage(page) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      const target = document.getElementById('page-' + page);
+      if (target) {
+        target.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Re-observe reveals on new page
+        setTimeout(() => {
+          target.querySelectorAll('.reveal, .reveal-card, .reveal-left, .reveal-right, .reveal-scale').forEach(el => revealObserver.observe(el));
+        }, 100);
+      }
+    }
+
+    // Nav scroll shadow
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 10);
+      document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 400);
+    });
+
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal, .reveal-card, .reveal-left, .reveal-right, .reveal-scale').forEach(el => revealObserver.observe(el));
+
+    // Scroll progress bar
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = (scrollTop / scrollHeight) * 100;
+      document.getElementById('scrollProgress').style.width = progress + '%';
+    });
+
+    // Parallax effect
+    function updateParallax() {
+      const scroll = window.scrollY;
+      // Hero parallax
+      const heroBg = document.getElementById('heroBg');
+      if (heroBg) {
+        heroBg.style.transform = 'translateY(' + (scroll * 0.3) + 'px)';
+      }
+      // Section parallax
+      document.querySelectorAll('.parallax-bg').forEach(bg => {
+        const section = bg.parentElement;
+        const rect = section.getBoundingClientRect();
+        const speed = parseFloat(bg.dataset.speed) || 0.15;
+        if (rect.bottom > 0 && rect.top < window.innerHeight) {
+          const offset = (rect.top * speed);
+          bg.style.transform = 'translateY(' + offset + 'px)';
+        }
+      });
+    }
+    window.addEventListener('scroll', updateParallax, { passive: true });
+
+    // Counter animation
+    function animateCounter(el, target, suffix) {
+      let current = 0;
+      const step = target / 40;
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        if (Number.isInteger(target)) {
+          el.innerHTML = Math.floor(current) + '<span>' + suffix + '</span>';
+        } else {
+          el.innerHTML = current.toFixed(1) + '<span>' + suffix + '</span>';
+        }
+      }, 30);
+    }
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const text = el.textContent.trim();
+          if (text.startsWith('5.0')) animateCounter(el, 5, '.0');
+          else if (text.startsWith('81')) animateCounter(el, 81, '+');
+          else if (text.startsWith('12')) animateCounter(el, 12, '+');
+          else if (text.startsWith('24')) animateCounter(el, 24, 'ч');
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.stat-num').forEach(el => counterObserver.observe(el));
+
+    // Mobile nav toggle
+    function toggleMobile() {
+      const links = document.querySelector('.nav-links');
+      links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+      links.style.flexDirection = 'column';
+      links.style.position = 'absolute';
+      links.style.top = '68px';
+      links.style.left = '0';
+      links.style.right = '0';
+      links.style.background = '#fff';
+      links.style.padding = '16px';
+      links.style.boxShadow = '0 8px 32px rgba(0,0,0,0.1)';
+      links.style.borderRadius = '0 0 14px 14px';
+    }
+
+    // Lightbox
+    function openLightbox(el) {
+      const img = el.querySelector('img');
+      const lb = document.getElementById('lightbox');
+      lb.querySelector('img').src = img.src;
+      lb.classList.add('active');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    // Callback form
+    function handleSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const success = document.getElementById('callbackSuccess');
+      form.style.display = 'none';
+      success.style.display = 'block';
+    }
+
+    // Floating social bar
+    function toggleFloatBar() {
+      const bar = document.getElementById('floatBar');
+      const toggle = document.getElementById('floatToggle');
+      bar.classList.toggle('open');
+      toggle.classList.toggle('active');
+    }
+    // Close on outside click
+    document.addEventListener('click', e => {
+      const wrap = document.querySelector('.float-social-wrap');
+      if (!wrap.contains(e.target)) {
+        document.getElementById('floatBar').classList.remove('open');
+        document.getElementById('floatToggle').classList.remove('active');
+      }
+    });
+  </script>
+
+  <!-- Floating Social Bar -->
+  <div class="float-social-wrap">
+    <button class="float-toggle" id="floatToggle" onclick="toggleFloatBar()" title="Связаться с нами">
+      <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+    </button>
+    <div class="float-bar" id="floatBar">
+      <a href="https://t.me/PrimeService96" target="_blank" class="float-bar-item fbi-tg" title="Telegram">
+        <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      </a>
+      <a href="https://vk.com/primeservis" target="_blank" class="float-bar-item fbi-vk" title="ВКонтакте">
+        <svg viewBox="0 0 24 24"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.678.847 2.49 2.27 4.675 2.86 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg>
+      </a>
+      <a href="https://wa.me/79826626262" target="_blank" class="float-bar-item fbi-wa" title="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+      <a href="https://web.max.ru/142112796" target="_blank" class="float-bar-item fbi-max" title="Max">
+        <img src="img/max-icon.png" alt="Max">
+      </a>
+      <a href="https://прайм96.рф" target="_blank" class="float-bar-item fbi-site" title="Сайт">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Наверх">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img src="" alt="Фото">
+  </div>
+</body>
+</html>

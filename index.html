@@ -799,6 +799,58 @@
     .review-author { font-size: 14px; font-weight: 700; color: var(--text); }
     .review-date { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
 
+    /* ═══════════════ MAP TILES ═══════════════ */
+    .map-tiles {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+      margin-top: 40px;
+    }
+    .map-tile {
+      display: flex; align-items: center; gap: 20px;
+      padding: 28px 32px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--white);
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .map-tile:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .map-tile-icon {
+      width: 56px; height: 56px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .map-tile-icon img { width: 36px; height: 36px; }
+    .map-tile-2gis .map-tile-icon { background: #0a9fff1a; }
+    .map-tile-yandex .map-tile-icon { background: #fc3f1d1a; }
+    .map-tile-info h3 {
+      font-size: 16px; font-weight: 700; color: var(--text);
+      margin-bottom: 4px;
+    }
+    .map-tile-info p {
+      font-size: 13px; color: var(--text-secondary); margin: 0;
+    }
+    .map-tile-rating {
+      margin-left: auto;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .map-tile-rating .rating-num {
+      font-size: 28px; font-weight: 800; color: var(--accent);
+    }
+    .map-tile-rating .rating-stars {
+      color: var(--accent); font-size: 12px; letter-spacing: 1px;
+    }
+    .map-tile-rating .rating-count {
+      font-size: 11px; color: var(--text-secondary); margin-top: 2px;
+    }
+    @media (max-width: 600px) {
+      .map-tiles { grid-template-columns: 1fr; }
+    }
+
     /* ═══════════════ GALLERY ═══════════════ */
     .gallery { background: var(--white); }
     .gallery-grid {
@@ -1783,6 +1835,39 @@
           </div>
 
         </div>
+
+        <!-- Мы в картах -->
+        <div class="map-tiles">
+          <a href="https://2gis.ru/revda/search/%D0%9F%D1%80%D0%B0%D0%B9%D0%BC%20%D0%A1%D0%B5%D1%80%D0%B2%D0%B8%D1%81" target="_blank" class="map-tile map-tile-2gis reveal-card">
+            <div class="map-tile-icon">
+              <img src="https://avatars.mds.yandex.net/get_entity_search/2460792/2a0000017c4e0a06c1f9e9a9d6a63e4a8d05/orig" alt="2ГИС">
+            </div>
+            <div class="map-tile-info">
+              <h3>Мы в 2ГИС</h3>
+              <p>Читайте отзывы и оставляйте свой</p>
+            </div>
+            <div class="map-tile-rating">
+              <div class="rating-num">4.9</div>
+              <div class="rating-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <div class="rating-count">19 отзывов</div>
+            </div>
+          </a>
+          <a href="https://yandex.ru/maps/?text=%D0%9F%D1%80%D0%B0%D0%B9%D0%BC%20%D0%A1%D0%B5%D1%80%D0%B2%D0%B8%D1%81%20%D0%A0%D0%B5%D0%B2%D0%B4%D0%B0" target="_blank" class="map-tile map-tile-yandex reveal-card">
+            <div class="map-tile-icon">
+              <img src="https://yastatic.net/s3/home-static/_/37/37a02b5dc7a51abac55d8a5b6c865f0e.png" alt="Яндекс Карты">
+            </div>
+            <div class="map-tile-info">
+              <h3>Мы в Яндекс Картах</h3>
+              <p>81+ отзыв &mdash; читайте и пишите</p>
+            </div>
+            <div class="map-tile-rating">
+              <div class="rating-num">5.0</div>
+              <div class="rating-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <div class="rating-count">81+ отзыв</div>
+            </div>
+          </a>
+        </div>
+
       </div>
     </section>
   </div>
